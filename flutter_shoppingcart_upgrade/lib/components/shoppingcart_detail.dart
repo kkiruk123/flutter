@@ -115,8 +115,8 @@ class ShoppingCartDetail extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: id == context.read<idProvider>().colorId ? 50 : 40,
+            height: id == context.read<idProvider>().colorId ? 50 : 40,
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(),
@@ -129,8 +129,8 @@ class ShoppingCartDetail extends StatelessWidget {
               child: ClipOval(
                   child: Container(
                 color: mColor,
-                width: 40,
-                height: 40,
+                width: id == context.read<idProvider>().colorId ? 40 : 30,
+                height: id == context.read<idProvider>().colorId ? 40 : 30,
                 child: Material(
                     color: mColor,
                     child: InkWell(onTap: () {
