@@ -18,3 +18,6 @@ const kPrimaryColor = MaterialColor(
 
 const kSecondaryColor = Color(0xFFc6c6c6); // 기본 버튼 색
 const kAccentColor = Color(0xFFff7643); // 활성화 버튼 색
+
+List<String> listItem = ["bicycle", "motorcycle", "car", "airplane"];
+List<String> listColor = ["black", "green", "orange", "grey", "white"];

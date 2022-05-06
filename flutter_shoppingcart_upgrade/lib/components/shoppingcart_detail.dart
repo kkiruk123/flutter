@@ -4,6 +4,7 @@ import 'package:flutter_shoppingcart/constants.dart';
 import 'package:flutter_shoppingcart/components/idProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_shoppingcart/components/idProvider.dart';
+import 'package:flutter_shoppingcart/components/cartProvider.dart';
 
 class ShoppingCartDetail extends StatelessWidget {
   List<int> priceList = [
@@ -157,6 +158,9 @@ class ShoppingCartDetail extends StatelessWidget {
                   child: Text("확인"),
                   onPressed: () {
                     Navigator.pop(context);
+                    context.read<cartProvider>().addItem(
+                        listItem[context.read<idProvider>().selectedId],
+                        listColor[context.read<idProvider>().colorId]);
                   },
                 ),
               ],

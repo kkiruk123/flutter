@@ -4,6 +4,7 @@ import 'package:flutter_shoppingcart/components/shoppingcart_header.dart';
 import 'package:flutter_shoppingcart/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_shoppingcart/components/idProvider.dart';
+import 'package:flutter_shoppingcart/components/cartProvider.dart';
 import 'package:flutter_shoppingcart/cart.dart';
 
 void main() {
@@ -15,8 +16,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => idProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => idProvider()),
+        ChangeNotifierProvider(create: (context) => cartProvider()),
+      ],
       child: MaterialApp(
         theme: theme(),
         home: ShoppingCartPage(),
