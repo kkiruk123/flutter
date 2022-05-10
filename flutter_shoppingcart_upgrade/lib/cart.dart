@@ -4,22 +4,22 @@ import 'package:flutter_shoppingcart/components/cartProvider.dart';
 import 'package:flutter_shoppingcart/constants.dart';
 import 'package:provider/provider.dart';
 
-class cartPage extends StatelessWidget {
+class CartPage extends StatelessWidget {
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shopping Cart'),
       ),
-      body: itemListView(),
+      body: ItemListView(),
     );
   }
 }
 
-class eachItem extends StatelessWidget {
-  eachItem(this._item);
+class EachItem extends StatelessWidget {
+  EachItem(this._item);
 
-  final cartItem _item;
+  final CartItem _item;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class eachItem extends StatelessWidget {
   }
 }
 
-class headerTile extends StatelessWidget {
+class HeaderTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -53,17 +53,17 @@ class headerTile extends StatelessWidget {
   }
 }
 
-class itemListView extends StatelessWidget {
+class ItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.all(8.0),
-      itemCount: context.read<cartProvider>().items.length + 1,
+      itemCount: context.read<CartProvider>().items.length + 1,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
-          return headerTile();
+          return HeaderTile();
         } else {
-          return eachItem(context.read<cartProvider>().items[index - 1]);
+          return EachItem(context.read<CartProvider>().items[index - 1]);
         }
       },
     );

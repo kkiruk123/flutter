@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shoppingcart/constants.dart';
 import 'package:flutter_shoppingcart/components/idProvider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_shoppingcart/components/idProvider.dart';
 import 'package:flutter_shoppingcart/components/cartProvider.dart';
 
+// ignore: must_be_immutable
 class ShoppingCartDetail extends StatelessWidget {
   List<int> priceList = [
     699,
@@ -39,7 +39,7 @@ class ShoppingCartDetail extends StatelessWidget {
   }
 
   Widget _buildDetailNameAndPrice(BuildContext context) {
-    final idProviderData = Provider.of<idProvider>(context);
+    final idProviderData = Provider.of<IdProvider>(context);
 
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
@@ -116,8 +116,8 @@ class ShoppingCartDetail extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: id == context.read<idProvider>().colorId ? 50 : 40,
-            height: id == context.read<idProvider>().colorId ? 50 : 40,
+            width: id == context.read<IdProvider>().colorId ? 50 : 40,
+            height: id == context.read<IdProvider>().colorId ? 50 : 40,
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(),
@@ -130,12 +130,12 @@ class ShoppingCartDetail extends StatelessWidget {
               child: ClipOval(
                   child: Container(
                 color: mColor,
-                width: id == context.read<idProvider>().colorId ? 40 : 30,
-                height: id == context.read<idProvider>().colorId ? 40 : 30,
+                width: id == context.read<IdProvider>().colorId ? 40 : 30,
+                height: id == context.read<IdProvider>().colorId ? 40 : 30,
                 child: Material(
                     color: mColor,
                     child: InkWell(onTap: () {
-                      context.read<idProvider>().colorIdChange(id);
+                      context.read<IdProvider>().colorIdChange(id);
                     })),
               )))
         ],
@@ -158,9 +158,9 @@ class ShoppingCartDetail extends StatelessWidget {
                   child: Text("확인"),
                   onPressed: () {
                     Navigator.pop(context);
-                    context.read<cartProvider>().addItem(
-                        listItem[context.read<idProvider>().selectedId],
-                        listColor[context.read<idProvider>().colorId]);
+                    context.read<CartProvider>().addItem(
+                        listItem[context.read<IdProvider>().selectedId],
+                        listColor[context.read<IdProvider>().colorId]);
                   },
                 ),
               ],

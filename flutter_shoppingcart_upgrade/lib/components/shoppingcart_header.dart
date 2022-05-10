@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shoppingcart/constants.dart';
 import 'package:flutter_shoppingcart/components/idProvider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_shoppingcart/components/idProvider.dart';
+
 
 class ShoppingCartHeader extends StatefulWidget {
   @override
@@ -51,7 +51,7 @@ class _ShoppingCartHeaderState extends State<ShoppingCartHeader> {
   }
 
   Widget _buildHeaderPic() {
-    final idProviderData = Provider.of<idProvider>(context);
+    final idProviderData = Provider.of<IdProvider>(context);
     final selectedId = idProviderData.selectedId;
     final colorId = idProviderData.colorId;
 
@@ -89,7 +89,7 @@ class _ShoppingCartHeaderState extends State<ShoppingCartHeader> {
       width: 70,
       height: 70,
       decoration: BoxDecoration(
-        color: id == context.read<idProvider>().selectedId
+        color: id == context.read<IdProvider>().selectedId
             ? kAccentColor
             : kSecondaryColor,
         borderRadius: BorderRadius.circular(20),
@@ -98,7 +98,7 @@ class _ShoppingCartHeaderState extends State<ShoppingCartHeader> {
         icon: Icon(mIcon, color: Colors.black),
         onPressed: () {
           setState(() {
-            context.read<idProvider>().seletedIdChange(id);
+            context.read<IdProvider>().seletedIdChange(id);
           });
         },
       ),

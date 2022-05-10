@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class idProvider with ChangeNotifier {
+class IdProvider with ChangeNotifier {
   int _colorId = 0;
   int _selectedId = 0;
 

@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => idProvider()),
-        ChangeNotifierProvider(create: (context) => cartProvider()),
+        ChangeNotifierProvider(create: (context) => IdProvider()),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
       ],
       child: MaterialApp(
         theme: theme(),
@@ -56,7 +56,7 @@ class ShoppingCartPage extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => cartPage(),
+                  builder: (context) => CartPage(),
                 ));
           },
         ),
